@@ -9,8 +9,12 @@ import {
 class App {
     constructor() {
         this.canvas = document.createElement('canvas');
+        this.dayNightBtn = document.createElement('button');
         this.ctx = this.canvas.getContext("2d");
+        document.body.appendChild(this.dayNightBtn);
         document.body.appendChild(this.canvas);
+        this.dayNightBtn.textContent = 'Day';
+        this.dayNight = true;
 
         this.hills = [
             new Hill('#fd6bea', 0.2, 12),
@@ -21,6 +25,7 @@ class App {
         this.sheepController = new SheepController();
 
         window.addEventListener('resize', this.resize.bind(this), false);
+        this.dayNightBtn.addEventListener('click', this.dayNightToggle.bind(this), false);
         this.resize();
 
         requestAnimationFrame(this.animate.bind(this));
@@ -52,6 +57,12 @@ class App {
         }
 
         this.sheepController.draw(this.ctx, t, dots);
+    }
+
+    dayNightToggle() {
+        this.dayNight = !this.dayNight
+        this.dayNightBtn.textContent = this.dayNight ? 'Day' : 'Night'
+        console.log('clicked')
     }
 }
 
