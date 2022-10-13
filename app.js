@@ -62,7 +62,17 @@ class App {
     dayNightToggle() {
         this.dayNight = !this.dayNight
         this.dayNightBtn.textContent = this.dayNight ? 'Day' : 'Night'
-        console.log('clicked')
+        if (this.dayNight) {
+            document.querySelector('body').style.backgroundColor = '#ffcaec'
+            this.hills[0].color = '#fd6bea'
+            this.hills[1].color = '#ff59c2'
+            this.hills[2].color = '#ff4674'
+        } else {
+            document.querySelector('body').style.backgroundColor = '#242F9B'
+            this.hills[0].color = '#DBDFFD'
+            this.hills[1].color = '#9BA3EB'
+            this.hills[2].color = '#646FD4'
+        }
     }
 }
 
