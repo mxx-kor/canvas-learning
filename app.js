@@ -57,6 +57,11 @@ class App {
         }
 
         this.sheepController.draw(this.ctx, t, dots);
+
+        this.ctx.fillStyle = '#000000'
+        this.sun = new Image();
+        this.sun.src = '/assets/sun.png'
+        this.ctx.drawImage(this.sun, 0, 0, 100, 100);
     }
 
     dayNightToggle() {
