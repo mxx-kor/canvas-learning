@@ -63,9 +63,9 @@ class App {
         this.sheepController.draw(this.ctx, t, dots);
         
         if (this.dayNight) {
-            this.ctx.drawImage(this.sun, 0, 0, 100, 100);
+            this.ctx.drawImage(this.sun, 40, 20, 100, 100);
         }else {
-            this.ctx.drawImage(this.moon, 0, 0, 100 ,100);
+            this.ctx.drawImage(this.moon, 40, 20, 100 ,100);
         }
     }
 
