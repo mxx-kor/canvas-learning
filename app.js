@@ -15,6 +15,10 @@ class App {
         document.body.appendChild(this.canvas);
         this.dayNightBtn.textContent = 'Day';
         this.dayNight = true;
+        this.sun = new Image();
+        this.sun.src = '/assets/sun.png'
+        this.moon = new Image();
+        this.moon.src = '/assets/moon.png'
 
         this.hills = [
             new Hill('#fd6bea', 0.2, 12),
@@ -57,11 +61,12 @@ class App {
         }
 
         this.sheepController.draw(this.ctx, t, dots);
-
-        this.ctx.fillStyle = '#000000'
-        this.sun = new Image();
-        this.sun.src = '/assets/sun.png'
-        this.ctx.drawImage(this.sun, 0, 0, 100, 100);
+        
+        if (this.dayNight) {
+            this.ctx.drawImage(this.sun, 0, 0, 100, 100);
+        }else {
+            this.ctx.drawImage(this.moon, 0, 0, 100 ,100);
+        }
     }
 
     dayNightToggle() {
